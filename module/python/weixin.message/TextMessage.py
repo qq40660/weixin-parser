@@ -6,34 +6,27 @@ import os,sys
 from xml.etree import ElementTree
 
 class TextMessage(object):
-
-    ToUserName   = ''
-    FromUserName = ''
-    CreateTime   = ''
-    MsgType      = ''
-    MsgId        = ''
-    Content      = ''
-
-
-    def __init__(self, xmldoc):
+    '''
+    The weixin text message adaptor
+    '''
+    def __init__(self, testmsg):
         try:
-            if (xmldoc != None):
-                self.__class__.ToUserName   = xmldoc.find('ToUserName').Text
-                self.__class__.FromUserName = xmldoc.find('FromUserName').Text
-                self.__class__.CreateTime   = xmldoc.find('CreateTime').Text
-                self.__class__.MsgType      = xmldoc.find('MsgType').Text
-                self.__class__.MsgId        = xmldoc.find('MsgId').Text
-                self.__class__.Content      = xmldoc.find('Content').Text
+            self.ToUserName   = testmsg.find('ToUserName').text
+            self.FromUserName = testmsg.find('FromUserName').text
+            self.CreateTime   = testmsg.find('CreateTime').text
+            self.MsgType      = testmsg.find('MsgType').text
+            self.MsgId        = testmsg.find('MsgId').text
+            self.Content      = testmsg.find('Content').text
         except:
             print "Unexptected error: " ,  sys.exc_info()[0]
 
 if __name__=="__main__":
     with open('/Users/usoluyun/Nutstore/weixin/xml/msg_text_example.xml','r') as d:
-        xmldoc = TextMessage(ElementTree.parse(d))
-        print xmldoc.ToUserName
-        print xmldoc.FromUserName
-        print xmldoc.CreateTime
-        print xmldoc.MsgType
-        print xmldoc.MsgId
-        print xmldoc.Content
+        testmsg = TextMessage(ElementTree.parse(d))
+        print testmsg.ToUserName
+        print testmsg.FromUserName
+        print testmsg.CreateTime
+        print testmsg.MsgType
+        print testmsg.MsgId
+        print testmsg.Content
 
