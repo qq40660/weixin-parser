@@ -21,7 +21,7 @@ class TextMessage(object):
             print "Unexptected error: " ,  sys.exc_info()[0]
 
 if __name__=="__main__":
-    with open('/Users/usoluyun/Nutstore/weixin/xml/msg_text_example.xml','r') as d:
+    with open('/Users/usoluyun/Documents/github/weixin-parse/xml/msg_text_example.xml','r') as d:
         testmsg = TextMessage(ElementTree.parse(d))
         print testmsg.ToUserName
         print testmsg.FromUserName
