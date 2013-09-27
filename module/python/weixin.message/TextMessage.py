@@ -8,18 +8,18 @@ from xml.etree.ElementTree import ParseError
 
 
 class TextMessage(object):
-    def __init__(self, test_msg):
+    def __init__(self, msg):
         """
 
         @rtype : xml object
         """
         try:
-            self.to_username = test_msg.find('ToUserName').text
-            self.from_username = test_msg.find('FromUserName').text
-            self.create_time = test_msg.find('CreateTime').text
-            self.msg_type = test_msg.find('MsgType').text
-            self.msg_id = test_msg.find('MsgId').text
-            self.content = test_msg.find('Content').text
+            self.to_username = msg.find('ToUserName').text
+            self.from_username = msg.find('FromUserName').text
+            self.create_time = msg.find('CreateTime').text
+            self.msg_type = msg.find('MsgType').text
+            self.msg_id = msg.find('MsgId').text
+            self.content = msg.find('Content').text
         except ParseError:
             print "Unexpected error: ", sys.exc_info()[0]
 
