@@ -7,7 +7,7 @@ from xml.etree import ElementTree
 from xml.etree.ElementTree import ParseError
 
 
-class TextMessage(object):
+class TextMessageReceive(object):
     def __init__(self, msg):
         """
 
@@ -26,7 +26,7 @@ class TextMessage(object):
 
 if __name__ == "__main__":
     with open('../../../xml/msg_text_example.xml', 'r') as d:
-        test_msg = TextMessage(ElementTree.parse(d))
+        test_msg = TextMessageReceive(ElementTree.parse(d))
         print test_msg.to_username
         print test_msg.from_username
         print test_msg.create_time

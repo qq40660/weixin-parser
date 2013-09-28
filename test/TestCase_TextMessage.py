@@ -2,9 +2,9 @@
 #Filename: 
 #author: Chester LU <usoluyun@gmail.com>
 
-import os,sys
-import unitetest
+from unittest import *
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()
 
